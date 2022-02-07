@@ -7,6 +7,7 @@ import javax.persistence.*;
 public class Persona {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "codper")
     private Long codper;
 

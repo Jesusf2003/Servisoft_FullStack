@@ -83,7 +83,7 @@ public class PersonaService implements PersonaRepository {
 
     @Override
     public Optional<Persona> findById(Long aLong) {
-        return Optional.empty();
+        return perrep.findById(aLong);
     }
 
     @Override
