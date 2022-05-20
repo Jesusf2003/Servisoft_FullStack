@@ -1,0 +1,10 @@
+server:
+    port: 9001
+spring:
+    config:
+        name: ms-product
+    datasource:
+        driver-class-name: org.postgresql.Driver
+        url: ec2-52-86-115-245.compute-1.amazonaws.com
+        username: tnvnjmwvczwijm
+        password: cb662d039f9a23d9c6bd08958dd882e1f02139660cc2af2c25a701cb64495824
