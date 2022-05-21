@@ -1,6 +1,7 @@
 package com.product.init.rest;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -32,13 +33,13 @@ public class ProductController {
 		return productService.create(product);
 	}
 
-	@PutMapping
+	@PutMapping("/{id}")
 	public Product update(@RequestBody Product product) {
 		return productService.update(product);
 	}
 
 	@DeleteMapping("/{id}")
-	public void delete(@PathVariable Long id) {
-		productService.delete(id);
+	public void delete(@PathVariable Long id, @RequestBody Product product) {
+		productService.delete(product);
 	}
 }

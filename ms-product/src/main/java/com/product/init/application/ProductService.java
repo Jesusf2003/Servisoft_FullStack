@@ -29,18 +29,25 @@ public class ProductService implements ProductServiceI {
 	@Override
 	public Product update(Product product) {
 		Optional<Product> optionalProduct = productRepository.findById(product.getProd_id());
-        if (!optionalProduct.isPresent()) {
-        	throw new RuntimeException("No se encontro el producto a actualizar");
-        }
+
+		if (!optionalProduct.isPresent()) {
+			throw new RuntimeException("No se encontro el producto a actualizar");
+		}
+
+		Product prod = optionalProduct.get();
+		prod.setProd_est("A");
+
 		return productRepository.save(product);
 	}
 
 	@Override
-	public void delete(Long id) {
-		Optional<Product> optionalProduct = productRepository.findById(id);
-        if (!optionalProduct.isPresent()) {
-        	throw new RuntimeException("No se encontro el producto a actualizar");
-        }
-        productRepository.deleteById(id);
+	public void delete(Product product) {
+		Optional<Product> optionalProduct = productRepository.findById(product.getProd_id());
+
+		if (!optionalProduct.isPresent()) {
+			throw new RuntimeException("No se encontro el producto a actualizar");
+		}
+		
+		Product prod = optionalProduct.get();
 	}
 }
